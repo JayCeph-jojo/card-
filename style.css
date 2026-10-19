@@ -1,0 +1,134 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    width: 100%;
+}
+body{
+    font-family: "roboto";
+    background-color: #171923;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper{
+    perspective: 3000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    position: relative;
+    width: min(360px, calc(100vw - 32px));
+    height: min(530px, calc(100vh - 32px));
+    min-height: 0;
+    transform-style: preserve-3d;
+    transition: transform .8s ease-in-out;
+    cursor: pointer;
+    border: 1px solid #00E5FF;
+    box-shadow: 0px 0px 15px rgba(0, 229, 255, 0.3),
+    -5px -5px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+}
+.card:hover{
+    transform: rotateY(180deg);
+    box-shadow: 0 0 25px #00E5FF;
+}
+.front-page,
+.back-page{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+}
+.front-page{
+    background-image: url(photo.jpg);
+    background-size: cover;
+}
+.card-info{
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+    color: #a725b6;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+.card-title{
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+.back-page{
+    background-color: #b85dc2;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.card-content{
+    text-align: center;
+    padding: 20px;
+    max-width: 300px;
+}
+.card-content h3{
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.card-description{
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+.card-button{
+    background-color: #710c7c;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.card-button:hover{
+    background-color: transparent;
+    color: #710c7c;
+    border: 1px solid #710c7c;
+}
+
+@media (max-width: 600px){
+    .card{
+        width: calc(100vw - 32px);
+        height: min(500px, calc(100vh - 32px));
+    }
+    .card-title{
+        font-size: clamp(1.5rem, 7vw, 2rem);
+    }
+    .card-content{
+        padding: 16px;
+    }
+}
+
+@media (max-height: 560px){
+    .card{
+        height: calc(100vh - 32px);
+    }
+}
+
+@media (hover: none){
+    .card:active{
+        transform: rotateY(180deg);
+    }
+}
+
