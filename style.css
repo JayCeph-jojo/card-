@@ -126,11 +126,6 @@ body{
     }
 }
 
-@media (hover: none){
-    .card:active{
-        transform: rotateY(180deg);
-    }
-}
 
  /* Touchscreens do not trigger hover, so let taps flip the card. */
         @media (hover: none) {
